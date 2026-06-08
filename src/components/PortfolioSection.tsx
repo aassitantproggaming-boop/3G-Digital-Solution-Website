@@ -152,7 +152,7 @@ export default function PortfolioSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <button className="btn-primary">Lihat Semua Portfolio</button>
+          <button className="btn-primary">View All Portfolio</button>
         </motion.div>
       </div>
     </section>

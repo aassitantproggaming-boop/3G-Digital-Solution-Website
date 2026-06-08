@@ -1,0 +1,47 @@
+{
+  "navigation": {
+    "home": "首页",
+    "services": "服务",
+    "team": "团队",
+    "portfolio": "作品集",
+    "contact": "联系",
+    "admin": "管理员"
+  },
+  "hero": {
+    "title": "3G 数字解决方案",
+    "subtitle": "为您的全球业务提供领先的数字解决方案",
+    "description": "我们提供高质量的网站开发、游戏创建和视频编辑服务，符合国际标准。",
+    "cta": "立即开始"
+  },
+  "services": {
+    "title": "我们的服务",
+    "subtitle": "为您的业务提供全面的数字解决方案",
+    "website": "网站开发",
+    "website_desc": "现代、响应式且搜索引擎友好的网站，以增强您的数字形象。",
+    "game": "游戏开发",
+    "game_desc": "为各种平台开发高质量游戏，具有引人入胜和创新的游戏玩法。",
+    "video": "视频编辑",
+    "video_desc": "具有电影效果的专业视频编辑，用于社交媒体和商业推广。"
+  },
+  "team": {
+    "title": "我们的团队",
+    "subtitle": "各领域的才华横溢的专业人士",
+    "founder": "创始人",
+    "developer": "开发者",
+    "designer": "设计师",
+    "editor": "视频编辑"
+  },
+  "portfolio": {
+    "title": "我们的作品集",
+    "subtitle": "我们的成功项目",
+    "completed": "已完成项目",
+    "clients": "满意客户",
+    "year": "年工作经验"
+  },
+  "footer": {
+    "rights": "版权所有 © 2026 3G 数字解决方案。保留所有权利。",
+    "location": "印度尼西亚雅加达",
+    "email": "info@3gdigital.com",
+    "phone": "+62 812 3456 7890"
+  }
+}

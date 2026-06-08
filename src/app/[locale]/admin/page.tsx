@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { Plus, Edit2, Trash2, LogOut } from "lucide-react";
 
 interface Service {
@@ -14,6 +14,8 @@ interface Service {
 export default function AdminDashboard() {
   const params = useParams();
   const locale = params.locale as string;
+  const router = useRouter();
+  
   const [services, setServices] = useState<Service[]>([
     {
       id: 1,
@@ -36,6 +38,7 @@ export default function AdminDashboard() {
   ]);
 
   const [showForm, setShowForm] = useState(false);
+  const [editingId, setEditingId] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -44,20 +47,43 @@ export default function AdminDashboard() {
 
   const handleAddService = () => {
     if (formData.title && formData.description) {
-      setServices([
-        ...services,
-        {
-          id: Date.now(),
-          ...formData,
-        },
-      ]);
+      if (editingId) {
+        setServices(
+          services.map((s) =>
+            s.id === editingId ? { ...s, ...formData } : s
+          )
+        );
+        setEditingId(null);
+      } else {
+        setServices([
+          ...services,
+          {
+            id: Date.now(),
+            ...formData,
+          },
+        ]);
+      }
       setFormData({ title: "", description: "", category: "website" });
       setShowForm(false);
     }
   };
 
+  const handleEditService = (service: Service) => {
+    setFormData({
+      title: service.title,
+      description: service.description,
+      category: service.category,
+    });
+    setEditingId(service.id);
+    setShowForm(true);
+  };
+
   const handleDeleteService = (id: number) => {
     setServices(services.filter((s) => s.id !== id));
+  };
+
+  const handleLogout = () => {
+    router.push(`/${locale}`);
   };
 
   return (
@@ -65,8 +91,14 @@ export default function AdminDashboard() {
       {/* Header */}
       <header className="bg-white shadow">
         <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-          <button className="flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+            <p className="text-gray-600 text-sm mt-1">3G Digital Solution</p>
+          </div>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold bg-red-50 px-4 py-2 rounded-lg transition-colors"
+          >
             <LogOut size={20} />
             Logout
           </button>
@@ -78,24 +110,30 @@ export default function AdminDashboard() {
         {/* Services Section */}
         <div className="bg-white rounded-lg shadow-md p-8">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Kelola Layanan</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Manage Services</h2>
             <button
-              onClick={() => setShowForm(!showForm)}
+              onClick={() => {
+                setShowForm(!showForm);
+                setEditingId(null);
+                setFormData({ title: "", description: "", category: "website" });
+              }}
               className="btn-primary flex items-center gap-2"
             >
               <Plus size={20} />
-              Tambah Layanan
+              Add Service
             </button>
           </div>
 
-          {/* Add Service Form */}
+          {/* Add/Edit Service Form */}
           {showForm && (
             <div className="mb-8 p-6 bg-gray-50 rounded-lg border-2 border-red-200">
-              <h3 className="text-xl font-bold mb-4">Tambah Layanan Baru</h3>
+              <h3 className="text-xl font-bold mb-4">
+                {editingId ? "Edit Service" : "Add New Service"}
+              </h3>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Judul Layanan
+                    Service Title
                   </label>
                   <input
                     type="text"
@@ -109,7 +147,7 @@ export default function AdminDashboard() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Deskripsi
+                    Description
                   </label>
                   <textarea
                     value={formData.description}
@@ -118,12 +156,12 @@ export default function AdminDashboard() {
                     }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                     rows={4}
-                    placeholder="Deskripsikan layanan ini..."
+                    placeholder="Describe this service..."
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Kategori
+                    Category
                   </label>
                   <select
                     value={formData.category}
@@ -142,13 +180,17 @@ export default function AdminDashboard() {
                     onClick={handleAddService}
                     className="btn-primary flex-1"
                   >
-                    Simpan Layanan
+                    {editingId ? "Update Service" : "Save Service"}
                   </button>
                   <button
-                    onClick={() => setShowForm(false)}
+                    onClick={() => {
+                      setShowForm(false);
+                      setEditingId(null);
+                      setFormData({ title: "", description: "", category: "website" });
+                    }}
                     className="btn-secondary flex-1"
                   >
-                    Batal
+                    Cancel
                   </button>
                 </div>
               </div>
@@ -161,16 +203,16 @@ export default function AdminDashboard() {
               <thead className="bg-gray-100">
                 <tr>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">
-                    Judul
+                    Title
                   </th>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">
-                    Deskripsi
+                    Description
                   </th>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">
-                    Kategori
+                    Category
                   </th>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">
-                    Aksi
+                    Actions
                   </th>
                 </tr>
               </thead>
@@ -180,8 +222,8 @@ export default function AdminDashboard() {
                     <td className="px-6 py-4 font-medium text-gray-900">
                       {service.title}
                     </td>
-                    <td className="px-6 py-4 text-gray-600">
-                      {service.description}
+                    <td className="px-6 py-4 text-gray-600 text-sm">
+                      {service.description.substring(0, 50)}...
                     </td>
                     <td className="px-6 py-4">
                       <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-semibold">
@@ -190,12 +232,15 @@ export default function AdminDashboard() {
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex gap-3">
-                        <button className="text-blue-600 hover:text-blue-700">
+                        <button
+                          onClick={() => handleEditService(service)}
+                          className="text-blue-600 hover:text-blue-700 transition-colors"
+                        >
                           <Edit2 size={18} />
                         </button>
                         <button
                           onClick={() => handleDeleteService(service.id)}
-                          className="text-red-600 hover:text-red-700"
+                          className="text-red-600 hover:text-red-700 transition-colors"
                         >
                           <Trash2 size={18} />
                         </button>
@@ -206,6 +251,19 @@ export default function AdminDashboard() {
               </tbody>
             </table>
           </div>
+
+          {/* Empty State */}
+          {services.length === 0 && !showForm && (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg mb-4">No services yet</p>
+              <button
+                onClick={() => setShowForm(true)}
+                className="btn-primary"
+              >
+                Add First Service
+              </button>
+            </div>
+          )}
         </div>
       </main>
     </div>

@@ -1,0 +1,47 @@
+{
+  "navigation": {
+    "home": "Beranda",
+    "services": "Layanan",
+    "team": "Tim Kami",
+    "portfolio": "Portfolio",
+    "contact": "Kontak",
+    "admin": "Admin"
+  },
+  "hero": {
+    "title": "3G Digital Solution",
+    "subtitle": "Solusi Digital Terdepan untuk Bisnis Global Anda",
+    "description": "Kami menyediakan layanan pembuatan website, pengembangan game, dan editing video berkualitas tinggi dengan standar internasional.",
+    "cta": "Mulai Sekarang"
+  },
+  "services": {
+    "title": "Layanan Kami",
+    "subtitle": "Solusi Digital Komprehensif untuk Bisnis Anda",
+    "website": "Pembuatan Website",
+    "website_desc": "Website modern, responsif, dan SEO-friendly untuk meningkatkan kehadiran digital Anda.",
+    "game": "Pengembangan Game",
+    "game_desc": "Game berkualitas tinggi untuk berbagai platform dengan gameplay yang menarik dan inovatif.",
+    "video": "Video Editing",
+    "video_desc": "Editing video profesional dengan efek sinematik untuk konten media sosial dan promosi bisnis."
+  },
+  "team": {
+    "title": "Tim Kami",
+    "subtitle": "Para Profesional Berbakat di Bidangnya",
+    "founder": "Founder",
+    "developer": "Developer",
+    "designer": "Designer",
+    "editor": "Video Editor"
+  },
+  "portfolio": {
+    "title": "Portfolio Pekerjaan",
+    "subtitle": "Proyek-proyek Sukses Kami",
+    "completed": "Proyek Selesai",
+    "clients": "Klien Puas",
+    "year": "Tahun Pengalaman"
+  },
+  "footer": {
+    "rights": "Hak Cipta © 2026 3G Digital Solution. Semua hak dilindungi.",
+    "location": "Jakarta, Indonesia",
+    "email": "info@3gdigital.com",
+    "phone": "+62 812 3456 7890"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "team": "Our Team",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "hero": {
+    "title": "3G Digital Solution",
+    "subtitle": "Leading Digital Solutions for Your Global Business",
+    "description": "We provide high-quality website development, game creation, and video editing services with international standards.",
+    "cta": "Get Started"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive Digital Solutions for Your Business",
+    "website": "Website Development",
+    "website_desc": "Modern, responsive, and SEO-friendly websites to enhance your digital presence.",
+    "game": "Game Development",
+    "game_desc": "High-quality games for various platforms with engaging and innovative gameplay.",
+    "video": "Video Editing",
+    "video_desc": "Professional video editing with cinematic effects for social media and business promotion."
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Talented Professionals in Their Fields",
+    "founder": "Founder",
+    "developer": "Developer",
+    "designer": "Designer",
+    "editor": "Video Editor"
+  },
+  "portfolio": {
+    "title": "Our Portfolio",
+    "subtitle": "Our Successful Projects",
+    "completed": "Projects Completed",
+    "clients": "Happy Clients",
+    "year": "Years of Experience"
+  },
+  "footer": {
+    "rights": "Copyright © 2026 3G Digital Solution. All rights reserved.",
+    "location": "Jakarta, Indonesia",
+    "email": "info@3gdigital.com",
+    "phone": "+62 812 3456 7890"
+  }
+}

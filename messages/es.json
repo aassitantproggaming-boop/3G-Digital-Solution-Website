@@ -1,0 +1,47 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "team": "Nuestro Equipo",
+    "portfolio": "Portafolio",
+    "contact": "Contacto",
+    "admin": "Admin"
+  },
+  "hero": {
+    "title": "3G Digital Solution",
+    "subtitle": "Soluciones Digitales Líderes para Su Negocio Global",
+    "description": "Proporcionamos desarrollo de sitios web, creación de juegos y edición de video de alta calidad con estándares internacionales.",
+    "cta": "Empezar Ahora"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones Digitales Integrales para Su Negocio",
+    "website": "Desarrollo de Sitios Web",
+    "website_desc": "Sitios web modernos, responsivos y amigables con SEO para mejorar su presencia digital.",
+    "game": "Desarrollo de Juegos",
+    "game_desc": "Juegos de alta calidad para varias plataformas con jugabilidad atractiva e innovadora.",
+    "video": "Edición de Video",
+    "video_desc": "Edición de video profesional con efectos cinemáticos para redes sociales y promoción comercial."
+  },
+  "team": {
+    "title": "Nuestro Equipo",
+    "subtitle": "Profesionales Talentosos en Sus Campos",
+    "founder": "Fundador",
+    "developer": "Desarrollador",
+    "designer": "Diseñador",
+    "editor": "Editor de Video"
+  },
+  "portfolio": {
+    "title": "Nuestro Portafolio",
+    "subtitle": "Nuestros Proyectos Exitosos",
+    "completed": "Proyectos Completados",
+    "clients": "Clientes Satisfechos",
+    "year": "Años de Experiencia"
+  },
+  "footer": {
+    "rights": "Copyright © 2026 3G Digital Solution. Todos los derechos reservados.",
+    "location": "Jakarta, Indonesia",
+    "email": "info@3gdigital.com",
+    "phone": "+62 812 3456 7890"
+  }
+}

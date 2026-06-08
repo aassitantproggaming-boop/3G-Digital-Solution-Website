@@ -114,7 +114,7 @@ export default function TeamSection() {
               {/* Back of Card - Social Links */}
               <div className="absolute inset-0 bg-gradient-to-b from-red-700 to-red-900 rounded-lg p-6 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-sm text-center mb-4">
-                  Hubungi Kami
+                  Contact Us
                 </p>
                 <div className="flex gap-4">
                   {member.social?.email && (
